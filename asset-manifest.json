@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/shopping-cart/static/css/main.3ac915b9.css",
+    "main.js": "/shopping-cart/static/js/main.444c4f33.js",
+    "static/media/watch-wallpaper.jpg": "/shopping-cart/static/media/watch-wallpaper.b0bc36faea69082ce3a9.jpg",
+    "static/media/pocketwatch-wallpaper.jpg": "/shopping-cart/static/media/pocketwatch-wallpaper.841f5c4f3e3dda39f2c3.jpg",
+    "index.html": "/shopping-cart/index.html",
+    "main.3ac915b9.css.map": "/shopping-cart/static/css/main.3ac915b9.css.map",
+    "main.444c4f33.js.map": "/shopping-cart/static/js/main.444c4f33.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.3ac915b9.css",
+    "static/js/main.444c4f33.js"
+  ]
+}
