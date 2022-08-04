@@ -14,7 +14,7 @@ function App() {
 
 	return (
 		<div className="App">
-			<BrowserRouter>
+			<BrowserRouter basename="/">
 				<nav>
 					<h1>Real Fake Watch & Co.</h1>
 					<Link className="site-links" to="/">
