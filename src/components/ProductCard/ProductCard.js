@@ -1,10 +1,15 @@
 import React, { useState } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPlus, faMinus } from '@fortawesome/free-solid-svg-icons';
+import '../../styles/productcard.css';
+
 const Card = ({ product, onAddToCart }) => {
 	const [value, setValue] = useState(0);
 	const addToCart = (e) => {
-		e.preventDefault();
-		onAddToCart(product.id, e.target.querySelector('input[name=qty]').value);
-		e.target.reset();
+		const valueToAdd = e.target.previousElementSibling.querySelector('input[type="number"]').value;
+		if (valueToAdd > 0) {
+			onAddToCart(product.id, valueToAdd);
+		}
 	};
 
 	const handleOnFocus = (e) => {
@@ -21,7 +26,7 @@ const Card = ({ product, onAddToCart }) => {
 
 	const handleOnInput = (e) => {
 		if (e.target.value < 0) {
-			e.target.value = 0;
+			e.target.value = '0';
 		}
 	};
 
@@ -30,29 +35,37 @@ const Card = ({ product, onAddToCart }) => {
 			<h4>{product.name}</h4>
 			<img src="https://via.placeholder.com/350x250" alt="product" />
 			<div className="price">$ {product.price}</div>
-			<button className="qty-decrement" onClick={() => (value - 1 >= 0 ? setValue(value - 1) : 0)}>
-				-
-			</button>
-			<form className="qty-inputs" onSubmit={addToCart}>
-				<label>
-					Qty:{' '}
-					<input
-						type="number"
-						name="qty"
-						value={value}
-						min="0"
-						onChange={(e) => setValue(e.target.value)}
-						onFocus={handleOnFocus}
-						onBlur={handleOnBlur}
-						onInput={handleOnInput}
-					/>
-				</label>
-				<button type="submit" className="add-cart">
-					Add to Cart
+
+			<label htmlFor={'item' + product.id + '-qty'}>
+				Qty:{' '}
+				<button
+					className="qty-decrement"
+					aria-label="-"
+					onClick={() => (value - 1 >= 0 ? setValue(parseInt(value - 1)) : setValue(0))}
+				>
+					<FontAwesomeIcon icon={faMinus} />
 				</button>
-			</form>
-			<button className="qty-increment" onClick={() => setValue(value + 1)}>
-				+
+				<input
+					type="number"
+					id={'item' + product.id + '-qty'}
+					value={value}
+					min="0"
+					onChange={(e) => (e.target.value ? setValue(parseInt(e.target.value)) : setValue(0))}
+					onFocus={handleOnFocus}
+					onBlur={handleOnBlur}
+					onInput={handleOnInput}
+				/>
+				<button
+					className="qty-increment"
+					aria-label="+"
+					onClick={() => setValue(parseInt(value + 1))}
+				>
+					<FontAwesomeIcon icon={faPlus} />
+				</button>
+			</label>
+
+			<button className="add-cart" onClick={addToCart}>
+				Add to Cart
 			</button>
 		</div>
 	);

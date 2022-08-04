@@ -16,8 +16,8 @@ it('should render the correct subtotal amount', () => {
 			]}
 		/>
 	);
-	const subtotalElement = screen.getByText(/Subtotal: 1861.96/i);
-	expect(subtotalElement).toBeInTheDocument();
+	const subtotalLabelElement = screen.getByLabelText(/Subtotal/);
+	expect(subtotalLabelElement).toHaveTextContent('$1861.96');
 });
 
 it('should render 3 images when 3 separate items are added to cart', () => {

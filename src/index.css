@@ -29,6 +29,9 @@ footer, header, hgroup, menu, nav, section {
 	display: block;
 }
 body {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 	line-height: 1;
 }
 ol, ul {

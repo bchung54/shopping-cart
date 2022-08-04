@@ -47,7 +47,7 @@ describe('ProductCard Quantity Input Functions', () => {
 		for (let i = 0; i < 3; i++) {
 			userEvent.click(decrementElement);
 		}
-		expect(inputElement.value).toBe('0');
+		expect(inputElement.value).toBe('');
 	});
 
 	it('should render 2 when increment button is clicked four times and decrement is clicked twice', () => {

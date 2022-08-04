@@ -1,10 +1,14 @@
-import cover from '../assets/images/pocketwatch-wallpaper.jpg';
+import { Link } from 'react-router-dom';
 import '../styles/home.css';
 
 const Home = () => {
 	return (
 		<div className="home">
-			<img src={cover} alt="watch-cover" className="cover-img" />
+			<button className="shop-btn">
+				<Link className="shop-btn-link" to="/shop">
+					Shop Now
+				</Link>
+			</button>
 		</div>
 	);
 };
